@@ -1,6 +1,6 @@
 # Computer Science Curriculum
 
-Here is my plan that supposes to fill the gaps in programming and improve the architecture of JS libraries I create.
+Here is my plan that supposed to fill the gaps in programming and improve the architecture of JS libraries I create. It is not linear, so it's okay to jump back and forward from one lang to another.
 
 ## 1. C lang.
 
@@ -19,7 +19,7 @@ I pick Rust over C++ and Java because of its modern infrastructure. It is easy t
 
 ## 3. Racket
 
-Racket is the most modern and comfortable way to start with Lisp. I thought about Clojure, but I don't want to install all that required. Plus, Clojure on Windows is in an alpha stage. But for sure, I should try ClojureScript.
+Racket is the most modern and comfortable way to start with Lisp. I thought about Clojure, but I don't want to install all that required and its not stable on Windows an currently in alpha.
 
 I heard a lot of kind words about Lisp and as I saw it used by a lot of amazing companies. It has a unique history, and that is an entirely different way to program. So I want to have an opinion on that and understand why some people love it so much.
 
@@ -32,3 +32,7 @@ My goal is to learn hard parts of functional programming. Haskell, as a statical
 
 - basics;
 - data structures and algorithms
+
+## 5. ClojureScript and PureScript
+
+As a Frontend Developer, I should try these languages and see all the benefits they provide compared to JS and TS.
