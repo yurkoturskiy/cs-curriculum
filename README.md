@@ -36,3 +36,11 @@ My goal is to learn hard parts of functional programming. Haskell, as a statical
 ## 5. ClojureScript and PureScript
 
 As a Frontend Developer, I should try these languages and see all the benefits they provide compared to JS and TS.
+
+## 6. TypeScript
+
+I intended to bring all my experience from the languages above to TypeScript, so it is necessary to have it here.
+
+## 7. Python
+
+I already have experience in Python though it's not my primary language. I don't want to drop it cause I have plans where to use it in the future.
