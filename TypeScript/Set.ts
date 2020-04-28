@@ -1,5 +1,3 @@
-import { traverseWithIndex } from "fp-ts/lib/ReadonlyRecord";
-
 interface mySet {
   collection: any[];
   has(element: any): boolean;
@@ -61,6 +59,66 @@ const mySet = function (this: mySet) {
     this.values().every((value: any) => otherSet.has(value));
 };
 
-const books = new (mySet as any)();
-books.add("Einstein");
-console.log(books);
+const booksSet = new (mySet as any)();
+booksSet.add("Einstein");
+console.log(booksSet);
+
+class MySet {
+  collection: any[];
+  constructor() {
+    this.collection = [];
+  }
+  has(element: any): boolean {
+    return this.collection.indexOf(element) !== -1;
+  }
+  values() {
+    return this.collection;
+  }
+  add(element: any): boolean {
+    if (!this.has(element)) {
+      this.collection.push(element);
+      return true;
+    }
+    return false;
+  }
+  remove(element: any): boolean {
+    if (this.has(element)) {
+      const index = this.collection.indexOf(element);
+      this.collection.splice(index, 1);
+      return true;
+    }
+    return false;
+  }
+  // Methods that are not included in standart JS Set
+  union(otherSet: mySet): mySet {
+    // Return the union of two sets
+    const unionSet = new (mySet as any)();
+    this.values().forEach((value) => unionSet.add(value));
+    otherSet.values().forEach((value) => unionSet.add(value));
+    return unionSet;
+  }
+  intersection(otherSet: mySet): mySet {
+    // Return new set that contains values that both current and input sets have
+    const intersectionSet = new (mySet as any)();
+    this.values().forEach((value) => {
+      otherSet.has(value) && intersectionSet.add(value);
+    });
+    return intersectionSet;
+  }
+  difference(otherSet: mySet): mySet {
+    // Return new set that is unique for current and input sets
+    const differenceSet = new (mySet as any)();
+    this.values().forEach((value) => {
+      !otherSet.has(value) && differenceSet.add(value);
+    });
+    return differenceSet;
+  }
+  subset(otherSet: mySet): boolean {
+    // Test if input set contains all values of current set
+    return this.values().every((value: any) => otherSet.has(value));
+  }
+}
+
+const moviesSet = new MySet();
+moviesSet.add("Seven");
+console.log(moviesSet.values());
