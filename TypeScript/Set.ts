@@ -67,9 +67,20 @@ const mySet = function (this: mySet) {
     this.values().every((value: any) => otherSet.has(value));
 };
 
-const booksSet = new (mySet as any)();
-booksSet.add("Einstein");
-console.log(booksSet);
+{
+  let setA = new (mySet as any)();
+  let setB = new (mySet as any)();
+  setA.add("a");
+  setA.add("d");
+  setA.add("z");
+  setB.add("a");
+  setB.add("b");
+  setB.add("c");
+  setB.add("d");
+  console.log("setA subset of setB:", setA.subset(setB));
+  console.log("setA & setB difference", setA.difference(setB));
+  console.log("setA & setB union", setA.union(setB));
+}
 
 class MySet {
   collection: any[];
@@ -136,6 +147,17 @@ class MySet {
   }
 }
 
-const moviesSet = new MySet();
-moviesSet.add("Seven");
-console.log(moviesSet.values());
+{
+  let setA = new MySet();
+  let setB = new MySet();
+  setA.add("a");
+  setA.add("d");
+  setA.add("z");
+  setB.add("a");
+  setB.add("b");
+  setB.add("c");
+  setB.add("d");
+  console.log("setA subset of setB:", setA.subset(setB));
+  console.log("setA & setB difference", setA.difference(setB));
+  console.log("setA & setB union", setA.union(setB));
+}
