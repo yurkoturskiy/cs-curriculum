@@ -1,9 +1,9 @@
 interface mySet {
   collection: any[];
-  has(element: any): boolean;
+  has<T>(element: T): boolean;
   values(): any[];
-  add(element: any): boolean;
-  remove(element: any): boolean;
+  add<T>(element: T): boolean;
+  remove<T>(element: T): boolean;
   // Methods that are not included in standart JS Set
   union(otherSet: this): this;
   intersection(otherSet: this): this;
@@ -13,15 +13,19 @@ interface mySet {
 
 const mySet = function (this: mySet) {
   this.collection = [];
-  this.has = (element: any): boolean => this.collection.indexOf(element) !== -1;
+
+  this.has = (element): boolean => this.collection.indexOf(element) !== -1;
+
   this.values = () => this.collection;
-  this.add = (element: any): boolean => {
+
+  this.add = (element): boolean => {
     if (!this.has(element)) {
       this.collection.push(element);
       return true;
     }
     return false;
   };
+
   this.remove = (element) => {
     if (this.has(element)) {
       const index = this.collection.indexOf(element);
@@ -30,15 +34,17 @@ const mySet = function (this: mySet) {
     }
     return false;
   };
+
   // Methods that are not included in standart JS Set
-  this.union = (otherSet: mySet) => {
+  this.union = (otherSet) => {
     // Return the union of two sets
     const unionSet = new (mySet as any)();
     this.values().forEach((value) => unionSet.add(value));
     otherSet.values().forEach((value) => unionSet.add(value));
     return unionSet;
   };
-  this.intersection = (otherSet: mySet): mySet => {
+
+  this.intersection = (otherSet) => {
     // Return new set that contains values that both current and input sets have
     const intersectionSet = new (mySet as any)();
     this.values().forEach((value) => {
@@ -46,7 +52,8 @@ const mySet = function (this: mySet) {
     });
     return intersectionSet;
   };
-  this.difference = (otherSet: mySet): mySet => {
+
+  this.difference = (otherSet) => {
     // Return new set that is unique for current and input sets
     const differenceSet = new (mySet as any)();
     this.values().forEach((value) => {
@@ -54,7 +61,8 @@ const mySet = function (this: mySet) {
     });
     return differenceSet;
   };
-  this.subset = (otherSet: mySet): boolean =>
+
+  this.subset = (otherSet) =>
     // Test if input set contains all values of current set
     this.values().every((value: any) => otherSet.has(value));
 };
@@ -65,23 +73,28 @@ console.log(booksSet);
 
 class MySet {
   collection: any[];
+
   constructor() {
     this.collection = [];
   }
-  has(element: any): boolean {
+
+  has<T>(element: T): boolean {
     return this.collection.indexOf(element) !== -1;
   }
+
   values() {
     return this.collection;
   }
-  add(element: any): boolean {
+
+  add<T>(element: T): boolean {
     if (!this.has(element)) {
       this.collection.push(element);
       return true;
     }
     return false;
   }
-  remove(element: any): boolean {
+
+  remove<T>(element: T): boolean {
     if (this.has(element)) {
       const index = this.collection.indexOf(element);
       this.collection.splice(index, 1);
@@ -89,6 +102,7 @@ class MySet {
     }
     return false;
   }
+
   // Methods that are not included in standart JS Set
   union(otherSet: mySet): mySet {
     // Return the union of two sets
@@ -97,6 +111,7 @@ class MySet {
     otherSet.values().forEach((value) => unionSet.add(value));
     return unionSet;
   }
+
   intersection(otherSet: mySet): mySet {
     // Return new set that contains values that both current and input sets have
     const intersectionSet = new (mySet as any)();
@@ -105,6 +120,7 @@ class MySet {
     });
     return intersectionSet;
   }
+
   difference(otherSet: mySet): mySet {
     // Return new set that is unique for current and input sets
     const differenceSet = new (mySet as any)();
@@ -113,6 +129,7 @@ class MySet {
     });
     return differenceSet;
   }
+
   subset(otherSet: mySet): boolean {
     // Test if input set contains all values of current set
     return this.values().every((value: any) => otherSet.has(value));
