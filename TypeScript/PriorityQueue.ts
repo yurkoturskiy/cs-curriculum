@@ -14,8 +14,8 @@ class PriorityQueue {
     } else {
       const passedByPriority = this.collection.reduce(
         (accCollection: [any, number][], item, index) => {
-          const include = accCollection.length <= index;
-          return element[1] < item[1] && include
+          const waiting = accCollection.length <= index;
+          return element[1] < item[1] && waiting
             ? [...accCollection, element, item]
             : [...accCollection, item];
         },
