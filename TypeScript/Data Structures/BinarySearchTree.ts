@@ -137,6 +137,11 @@ class BinarySearchTree implements BinarySearchTree {
     this.root = removeNode(this.root, data);
     return this.root;
   }
+
+  isBalanced() {
+    return this.findMinHeight() >= this.findMaxHeight() - 1;
+  }
+
   findMinHeight(node: BSTNode | null = this.root): number {
     if (node == null) {
       return -1;
@@ -180,3 +185,4 @@ console.log("find 5", tree.find(5));
 console.log(tree);
 console.log("find min height:", tree.findMinHeight());
 console.log("find max height:", tree.findMaxHeight());
+console.log("is balanced:", tree.isBalanced());
