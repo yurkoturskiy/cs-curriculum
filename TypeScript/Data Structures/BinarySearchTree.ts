@@ -137,6 +137,19 @@ class BinarySearchTree implements BinarySearchTree {
     this.root = removeNode(this.root, data);
     return this.root;
   }
+  findMinHeight(node: BSTNode | null = this.root): number {
+    if (node == null) {
+      return -1;
+    }
+    const left = this.findMinHeight(node.left);
+    const right = this.findMinHeight(node.right);
+    if (left < right) {
+      return left + 1;
+    } else {
+      return right + 1;
+    }
+  }
+
 }
 
 const tree = new BinarySearchTree();
@@ -153,3 +166,4 @@ console.log("5 is present", tree.isPresent(5));
 tree.remove(5);
 console.log("find 5", tree.find(5));
 console.log(tree);
+console.log("find min height:", tree.findMinHeight());
