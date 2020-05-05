@@ -167,6 +167,21 @@ class BinarySearchTree implements BinarySearchTree {
       return right + 1;
     }
   }
+
+  inOrder() {
+    if (this.root === null) {
+      return null;
+    } else {
+      let result = new Array();
+      const traverseInOrder = (node: BSTNode) => {
+        node.left && traverseInOrder(node.left);
+        result.push(node.data);
+        node.right && traverseInOrder(node.right);
+      };
+      traverseInOrder(this.root);
+      return result;
+    }
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -186,3 +201,4 @@ console.log(tree);
 console.log("find min height:", tree.findMinHeight());
 console.log("find max height:", tree.findMaxHeight());
 console.log("is balanced:", tree.isBalanced());
+console.log("traverse inOrder:", tree.inOrder());
