@@ -78,6 +78,18 @@ class LinkedList implements LinkedList {
   isEmpty() {
     return this.length === 0;
   }
+
+  indexOf(element: any) {
+    let currentNode = this.head;
+    let index = -1;
+    if (currentNode === null) return index;
+    while (currentNode) {
+      index++;
+      if (currentNode.element === element) return index;
+      currentNode = currentNode.next;
+    }
+    return -1;
+  }
 }
 
 const LLInstance = new LinkedList();
@@ -91,3 +103,5 @@ console.log(LLInstance);
 console.log(LLInstance.remove("third one"));
 console.log(LLInstance.remove("new one"));
 console.log(LLInstance);
+console.log(LLInstance.head);
+console.log(LLInstance.indexOf("second one"));
