@@ -90,6 +90,17 @@ class LinkedList implements LinkedList {
     }
     return -1;
   }
+
+  elementAt(index: number) {
+    let count = -1;
+    let currentNode = this.head;
+    while (currentNode) {
+      count++;
+      if (index === count) return currentNode;
+      currentNode = currentNode.next;
+    }
+    return null;
+  }
 }
 
 const LLInstance = new LinkedList();
@@ -105,3 +116,4 @@ console.log(LLInstance.remove("new one"));
 console.log(LLInstance);
 console.log(LLInstance.head);
 console.log(LLInstance.indexOf("second one"));
+console.log(LLInstance.elementAt(1));
