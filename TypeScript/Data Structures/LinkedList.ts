@@ -1,6 +1,13 @@
 interface LinkedListNode {
   element: any;
-  next: LinkedListNode;
+  next: LinkedListNode | null;
+}
+
+class LinkedListNode implements LinkedListNode {
+  constructor(element: any) {
+    this.element = element;
+    this.next = null;
+  }
 }
 
 interface LinkedList {
@@ -15,9 +22,9 @@ interface LinkedList {
   addAt<T>(index: number, element: T): void;
 }
 
-class LinkedList {
-  constructor() {
-    this.head = null;
+class LinkedList implements LinkedList {
+  constructor(element: any = null) {
+    this.head = element && new LinkedListNode(element);
     this.length = 0;
   }
 
@@ -25,3 +32,7 @@ class LinkedList {
     return this.length;
   }
 }
+
+const LLInstance = new LinkedList();
+console.log(LLInstance.size());
+console.log(LLInstance.head);
