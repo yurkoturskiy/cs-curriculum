@@ -17,6 +17,7 @@ interface HashTable {
   storageLimit: number;
   add(key: string, value: any): void;
   remove(key: string): void;
+  lookup(key: string): [string, any];
 }
 
 class HashTable implements HashTable {
@@ -48,14 +49,20 @@ class HashTable implements HashTable {
   remove(key: string) {
     const bucketIndex = hash(key, this.storageLimit);
     if (this.storage[bucketIndex]) {
-      this.storage[bucketIndex] = this.storage[bucketIndex].reduce(
-        (acc: [string, any][], curr: [string, any], index: number) =>
-          curr[0] === key ? acc : [...acc, curr],
-        []
+      this.storage[bucketIndex] = this.storage[bucketIndex].filter(
+        (item) => item[0] !== key
       );
       if (this.storage[bucketIndex].length === 0)
         delete this.storage[bucketIndex];
     }
+  }
+
+  lookup(key: string) {
+    const bucketIndex = hash(key, this.storageLimit);
+    return (
+      this.storage[bucketIndex] &&
+      this.storage[bucketIndex].find((pair) => pair[0] === key)
+    );
   }
 }
 
@@ -67,3 +74,5 @@ console.log(hashTableStorage.storage);
 hashTableStorage.remove("another");
 hashTableStorage.remove("another");
 console.log(hashTableStorage.storage);
+console.log(hashTableStorage.lookup("some"));
+console.log(hashTableStorage.lookup("another"));
