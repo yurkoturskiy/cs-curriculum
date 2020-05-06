@@ -43,8 +43,36 @@ class LinkedList implements LinkedList {
         currentNode = currentNode.next;
       }
       currentNode.next = node;
-      this.length++;
     }
+    this.length++;
+  }
+
+  remove<T>(element: T) {
+    if (this.head === null) return false;
+    let prevNode = null;
+    let currentNode = this.head;
+    while (currentNode.next && currentNode.element !== element) {
+      // Itterate through and pick the right node or stop on the last one
+      prevNode = currentNode;
+      currentNode = currentNode.next;
+    }
+    const isExist = currentNode.element === element;
+    if (isExist === false) return false;
+    // If we found node
+    if (currentNode.next) {
+      // If the node is somewhere in the middle
+      // Replace it with the next one
+      currentNode.element = currentNode.next.element;
+      currentNode.next = currentNode.next.next;
+    } else if (this.head === currentNode) {
+      // if the node is head and the only node in the chain
+      this.head = null;
+    } else if (prevNode) {
+      // if the node is the last in the chain but previous exists
+      prevNode.next = null;
+    }
+    this.length--;
+    return true;
   }
 }
 
@@ -55,4 +83,7 @@ LLInstance.add("new one");
 LLInstance.add("second one");
 LLInstance.add("third one");
 console.log(LLInstance.size());
+console.log(LLInstance);
+console.log(LLInstance.remove("third one"));
+console.log(LLInstance.remove("new one"));
 console.log(LLInstance);
