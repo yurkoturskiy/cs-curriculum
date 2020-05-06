@@ -31,8 +31,28 @@ class LinkedList implements LinkedList {
   size() {
     return this.length;
   }
+
+  add<T>(element: T) {
+    const node = new LinkedListNode(element);
+    if (this.head === null) {
+      this.head = node;
+    } else {
+      let currentNode = this.head;
+      while (currentNode.next) {
+        // Walk to the last node
+        currentNode = currentNode.next;
+      }
+      currentNode.next = node;
+      this.length++;
+    }
+  }
 }
 
 const LLInstance = new LinkedList();
 console.log(LLInstance.size());
 console.log(LLInstance.head);
+LLInstance.add("new one");
+LLInstance.add("second one");
+LLInstance.add("third one");
+console.log(LLInstance.size());
+console.log(LLInstance);
