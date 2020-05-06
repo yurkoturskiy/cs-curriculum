@@ -74,6 +74,10 @@ class LinkedList implements LinkedList {
     this.length--;
     return true;
   }
+
+  isEmpty() {
+    return this.length === 0;
+  }
 }
 
 const LLInstance = new LinkedList();
