@@ -1,7 +1,5 @@
 /* Hash Table */
 
-import { stringifyJSON } from "fp-ts/lib/Either";
-
 const hash = (string: string, max: number) => {
   // Basic/Simple Hash Function
   const hash: number = string
