@@ -212,6 +212,27 @@ class BinarySearchTree implements BinarySearchTree {
       return result;
     }
   }
+
+  levelOrder() {
+    let result = new Array();
+    let Q = new Array();
+    if (this.root !== null) {
+      Q.push(this.root);
+      while (Q.length > 0) {
+        let node = Q.shift();
+        result.push(node.data);
+        if (node.left != null) {
+          Q.push(node.left);
+        }
+        if (node.right != null) {
+          Q.push(node.right);
+        }
+      }
+      return result;
+    } else {
+      return null;
+    }
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -219,6 +240,7 @@ tree.add(5);
 tree.add(2);
 tree.add(6);
 tree.add(4);
+tree.add(9);
 tree.add(1);
 console.log(tree);
 console.log("min", tree.findMin());
@@ -234,3 +256,4 @@ console.log("is balanced:", tree.isBalanced());
 console.log("traverse inOrder:", tree.inOrder());
 console.log("traverse preOrder:", tree.preOrder());
 console.log("traverse postOrder:", tree.postOrder());
+console.log("traverse levelOrder:", tree.levelOrder());
