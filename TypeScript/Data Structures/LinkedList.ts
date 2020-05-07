@@ -1,3 +1,5 @@
+import { takeWhile } from "ramda";
+
 interface LinkedListNode {
   element: any;
   next: LinkedListNode | null;
@@ -19,7 +21,8 @@ interface LinkedList {
   isEmpty(): boolean;
   indexOf<T>(element: T): number;
   elementAt(index: number): any;
-  addAt<T>(index: number, element: T): void;
+  addAt<T>(index: number, element: T): boolean;
+  removeAt(index: number): boolean;
 }
 
 class LinkedList implements LinkedList {
@@ -132,6 +135,31 @@ class LinkedList implements LinkedList {
     this.length++;
     return true;
   }
+
+  removeAt(index: number) {
+    if (index < 0 || index >= this.length) return false;
+    let currentNode = this.head;
+    let currentIndex = 0;
+    let prevNode;
+    while (currentIndex < index && currentNode) {
+      // Search for node to delete
+      currentIndex++;
+      prevNode = currentNode;
+      currentNode = currentNode.next;
+    }
+    if (currentNode === null)
+      // Nothing to delete
+      return false;
+    else if (!prevNode) {
+      // Delete zero index
+      this.head = currentNode.next;
+    } else {
+      // Delete more that zero index
+      prevNode.next = currentNode.next;
+    }
+    this.length--;
+    return true;
+  }
 }
 
 const LLInstance = new LinkedList();
@@ -142,11 +170,12 @@ LLInstance.add("second one");
 LLInstance.add("third one");
 console.log(LLInstance.size());
 console.log(LLInstance);
-console.log(LLInstance.remove("third one"));
 console.log(LLInstance.remove("new one"));
 console.log(LLInstance);
 console.log(LLInstance.head);
 console.log(LLInstance.indexOf("second one"));
 console.log(LLInstance.elementAt(1));
 console.log(LLInstance.addAt(0, "WOW"));
+console.log(LLInstance);
+console.log(LLInstance.removeAt(1));
 console.log(LLInstance);
