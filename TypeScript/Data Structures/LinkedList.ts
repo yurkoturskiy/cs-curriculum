@@ -101,6 +101,37 @@ class LinkedList implements LinkedList {
     }
     return null;
   }
+
+  addAt<T>(index: number, element: T) {
+    if (index > this.length)
+      // Index if out of range
+      return false;
+
+    let newNode = new LinkedListNode(element);
+    let currentNode = this.head;
+    let prevNode;
+    let currentIndex = 0;
+    while (currentIndex < index && currentNode) {
+      currentIndex++;
+      prevNode = currentNode;
+      currentNode = currentNode.next;
+    }
+    if (!prevNode && currentNode === null) {
+      // List is empty & index = 0
+      currentNode = newNode;
+      return true;
+    } else if (!prevNode) {
+      // index = 0 & list non-empty. Change head
+      newNode.next = currentNode;
+      this.head = newNode;
+    } else {
+      // index > 0
+      newNode.next = currentNode;
+      prevNode.next = newNode;
+    }
+    this.length++;
+    return true;
+  }
 }
 
 const LLInstance = new LinkedList();
@@ -117,3 +148,5 @@ console.log(LLInstance);
 console.log(LLInstance.head);
 console.log(LLInstance.indexOf("second one"));
 console.log(LLInstance.elementAt(1));
+console.log(LLInstance.addAt(0, "WOW"));
+console.log(LLInstance);
