@@ -19,3 +19,10 @@ class TrieNode implements TrieNode {
     return this.end;
   }
 }
+
+interface Trie {
+  root: TrieNode;
+  add(input: any, node: TrieNode): void;
+  isWord(word: string): boolean;
+  print(): string[];
+}
