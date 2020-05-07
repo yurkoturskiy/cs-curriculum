@@ -15,7 +15,7 @@ class TrieNode implements TrieNode {
     this.end = true;
   }
 
-  isEnd() {
+  isEnd(): boolean {
     return this.end;
   }
 }
@@ -43,8 +43,24 @@ class Trie implements Trie {
       return this.add(input.substr(1), node.keys.get(input[0]));
     }
   }
+
+  isWord(word: string): boolean {
+    let node = this.root;
+    while (word.length > 1) {
+      if (!node.keys.has(word[0])) return false;
+      else {
+        node = node.keys.get(word[0]) as TrieNode;
+        word = word.substr(1);
+      }
+    }
+    const lastNode = node.keys.get(word);
+    const result = lastNode && lastNode.isEnd();
+    return !!result;
+  }
 }
 
 const words = new Trie();
 words.add("work");
-console.log(words);
+words.add("world");
+console.log(words.isWord("world"));
+console.log(words.isWord("worst"));
