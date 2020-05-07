@@ -26,3 +26,9 @@ interface Trie {
   isWord(word: string): boolean;
   print(): string[];
 }
+
+class Trie implements Trie {
+  constructor() {
+    this.root = new TrieNode();
+  }
+}
