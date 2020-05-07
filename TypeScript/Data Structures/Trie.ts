@@ -24,7 +24,7 @@ interface Trie {
   root: TrieNode;
   add(input: string, node: TrieNode): void;
   isWord(word: string): boolean;
-  print(): string[];
+  print(): string[] | null;
 }
 
 class Trie implements Trie {
@@ -57,10 +57,36 @@ class Trie implements Trie {
     const result = lastNode && lastNode.isEnd();
     return !!result;
   }
+
+  print(): string[] | null {
+    let words: string[] = new Array();
+    const search = (node: TrieNode, string: string): void => {
+      if (node.keys.size !== 0) {
+        for (let letter of node.keys.keys()) {
+          search(node.keys.get(letter) as TrieNode, string.concat(letter));
+        }
+        if (node.isEnd()) {
+          words.push(string);
+        }
+      } else {
+        string.length > 0 && words.push(string);
+        return;
+      }
+    };
+    search(this.root, "");
+    return words.length !== 0 ? words : null;
+  }
 }
 
 const words = new Trie();
 words.add("work");
 words.add("world");
+words.add("worms");
+words.add("awesome");
+words.add("esome");
+words.add("ball");
+words.add("bat");
+words.add("me");
 console.log(words.isWord("world"));
 console.log(words.isWord("worst"));
+console.log(words.print());
