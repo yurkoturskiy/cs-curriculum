@@ -3,7 +3,7 @@ type heapType = any[];
 interface MinHeap {
   heap: heapType;
   add(num: number): void;
-  remove(): boolean;
+  remove(): number | null;
   sort(): number[];
 }
 
@@ -40,8 +40,9 @@ class MinHeap implements MinHeap {
     }
   }
 
-  remove(): boolean {
-    if (this.heap.length < 2) return false;
+  remove(): number | null {
+    if (this.heap.length < 2) return null;
+    let smallest = this.heap[1];
     this.heap[1] = this.heap[this.heap.length - 1]; // Del root val and place last instead
     this.heap.pop(); // Remove last
     // Validate root number and move down if needed
@@ -71,8 +72,17 @@ class MinHeap implements MinHeap {
       rightChildIndex = this.calcRightChildIndex(index);
       rightChildValue = this.heap[rightChildIndex];
     }
-    console.log(this.heap);
-    return true;
+    return smallest;
+  }
+
+  sort(): number[] {
+    let result = new Array();
+    const heapReplica = this.heap.concat();
+    while (this.heap.length > 1) {
+      result.push(this.remove());
+    }
+    this.heap = heapReplica;
+    return result;
   }
 }
 
@@ -89,4 +99,6 @@ console.log(numbers);
 numbers.remove();
 console.log(numbers);
 numbers.remove();
+console.log(numbers);
+console.log(numbers.sort());
 console.log(numbers);
