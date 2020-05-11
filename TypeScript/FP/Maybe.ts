@@ -55,3 +55,35 @@ console.log(streetName({ addresses: [] }));
 
 console.log(streetName({ addresses: [{ street: "Shady Ln.", number: 4201 }] }));
 // Just('Shady Ln.')
+
+/* Balance example from the book */
+
+interface Balance {
+  balance: number;
+}
+
+// withdraw :: Number -> Account -> Maybe(Account)
+const withdraw = curry(
+  (amount: number, { balance }: Balance): Maybe<object | null> =>
+    Maybe.of(balance >= amount ? { balance: balance - amount } : null)
+);
+
+// This function is hypothetical, not implemented here... nor anywhere else.
+// updateLedger :: Account -> Account
+const updateLedger = (account: Balance): Balance => account;
+
+// remainingBalance :: Account -> String
+const remainingBalance = ({ balance }: Balance): string =>
+  `Your balance is $${balance}`;
+
+// finishTransaction :: Account -> String
+const finishTransaction = compose(remainingBalance, updateLedger);
+
+// getTwenty :: Account -> Maybe(String)
+const getTwenty = compose(map(finishTransaction), withdraw(20));
+
+console.log(getTwenty({ balance: 200.0 }));
+// Just('Your balance is $180')
+
+console.log(getTwenty({ balance: 10.0 }));
+// Nothing
