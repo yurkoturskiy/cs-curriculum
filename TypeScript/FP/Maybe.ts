@@ -80,10 +80,31 @@ const remainingBalance = ({ balance }: Balance): string =>
 const finishTransaction = compose(remainingBalance, updateLedger);
 
 // getTwenty :: Account -> Maybe(String)
-const getTwenty = compose(map(finishTransaction), withdraw(20));
+const getTwentyBucks = compose(map(finishTransaction), withdraw(20));
 
-console.log(getTwenty({ balance: 200.0 }));
+console.log(getTwentyBucks({ balance: 200.0 }));
 // Just('Your balance is $180')
 
-console.log(getTwenty({ balance: 10.0 }));
+console.log(getTwentyBucks({ balance: 10.0 }));
 // Nothing
+
+// maybe :: b -> (a -> b) -> Maybe a -> b
+const maybe = curry((v, f, m) => {
+  if (m.isNothing) {
+    return v;
+  }
+
+  return f(m.$value);
+});
+
+// getTwenty :: Account -> String
+const getTwenty = compose(
+  maybe("You're broke!", finishTransaction),
+  withdraw(20)
+);
+
+console.log(getTwenty({ balance: 200.0 }));
+// 'Your balance is $180.00'
+
+console.log(getTwenty({ balance: 10.0 }));
+// 'You\'re broke!'
