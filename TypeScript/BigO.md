@@ -39,3 +39,21 @@ while (start <= end) {
 }
 return undefined;
 ```
+
+```js
+/**
+ * f(n) = n * (3n + 2n) = 5n²
+ * O(f(n)) = O(n²)
+ */
+let i = 0;
+while (i < n) {
+  j = 0;
+  while (j < 3 * n) {
+    j++;
+  }
+  j = 0;
+  while (j < 2 * n) {
+    j++;
+  }
+}
+```
