@@ -75,3 +75,11 @@ while (i < 3 * n) {
   i++;
 }
 ```
+
+Finding all subsets of a set – O(2^n)
+
+Finding all permutations of a string – O(n!)
+
+Sorting using mergesort – O(nlog(n))
+
+Iterating over all the cells in a matrix of size n by m – O(nm)
