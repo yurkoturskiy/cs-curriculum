@@ -27,8 +27,6 @@ It used everywhere. Here is a few examples:
 | Appending | N/A          | O(1)          |
 | Deletion  | N/A          | O(n)          |
 
-## Static array usage example
-
 ## Dynamic Array implementation details
 
 Dynamic array can grow and shrink in size. It is usualy created with a static array and here is how that works:
@@ -41,8 +39,45 @@ Dynamic array can grow and shrink in size. It is usualy created with a static ar
 [undefined, undefined] => [3, undefined] => [3,5] => [3,5, 2, undefined] => [3,5,2,9] => [3,5,2,9, 5, undefined, undefined, undefined]
 ```
 
-## Code implementation
+# Linked lists
 
-```
+A linked list is a sequential list of nodes that hold data which point to other nodes and containing data.
 
-```
+### Where are linked lists used?
+
+- Used in many List, Queue & Stack implementations;
+- Great for creating circular lists;
+- Can easily model real world objects such as trains;
+- Used in separate chaining, which is present certain Hashtable implementations to deal with hashing collisions;
+- Often used in the implementation of adjacency lists for graphs.
+
+### Terminology
+
+**Head** is the first node in a linked list.
+
+**Tail** is the last node in a linked list.
+
+**Pointer** is the reference to another node.
+
+**Node** is an object that containing data and pointer(s).
+
+## Singly vs doubly linked lists
+
+Singly linked list only holds one pointer to the next node, while doubly liked list also has pointer to a previous node.
+
+|                   | Pros                      | Cons                                   |
+| ----------------- | ------------------------- | -------------------------------------- |
+| **Singly Linked** | Uses less memory          | Cannot easily access previous elements |
+|                   | Simpler implementation    |                                        |
+| **Doubly Linked** | Can be traversed backward | Takes 2x memory                        |
+
+## Complexity:
+
+|                  | Singly Linked | Doubly Linked |
+| ---------------- | :-----------: | :-----------: |
+| Search           |     O(n)      |     O(n)      |
+| Insert at head   |     O(1)      |     O(1)      |
+| Insert at tail   |     O(1)      |     O(1)      |
+| Remove at head   |     O(1)      |     O(1)      |
+| Remove at tail   |     O(n)      |     O(1)      |
+| Remove in middle |     O(n)      |     O(n)      |
