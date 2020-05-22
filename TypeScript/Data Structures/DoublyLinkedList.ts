@@ -17,8 +17,8 @@ class DoublyLinkedListNode<T> implements DoublyLinkedListNode<T> {
 }
 
 interface DoublyLinkedList<T> {
-  head: DoublyLinkedListNode<T>;
-  tail: DoublyLinkedListNode<T>;
+  head: DoublyLinkedListNode<T> | null;
+  tail: DoublyLinkedListNode<T> | null;
   length: number;
   clear(): void;
   size(): number;
@@ -35,4 +35,12 @@ interface DoublyLinkedList<T> {
   removeElement<T>(element: T): boolean;
   indexOf<T>(element: T): number;
   contains<T>(element: T): boolean;
+}
+
+class DoublyLinkedList<T> implements DoublyLinkedList<T> {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
 }
