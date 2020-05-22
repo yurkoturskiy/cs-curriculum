@@ -1,4 +1,4 @@
-import { LinkedList } from "../Data Structures/LinkedList";
+import { LinkedList } from "../Data Structures/SinglyLinkedList";
 
 const reverseSinglyLinkedList = (list: LinkedList): LinkedList => {
   // Reverse singly linked list
