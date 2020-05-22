@@ -81,3 +81,25 @@ Singly linked list only holds one pointer to the next node, while doubly liked l
 | Remove at head   |     O(1)      |     O(1)      |
 | Remove at tail   |     O(n)      |     O(1)      |
 | Remove in middle |     O(n)      |     O(n)      |
+
+# Stack
+
+Stack is a one-ended linear data structure which models a real world stack by having two primary operations, namely `push` and `pop`.
+
+## When and where is a Stack used?
+
+- Used by undo mechanism in text editor;
+- Used in compiler syntax checking for matching brackets and braces;
+- Can be used to model a pile of books or plates;
+- Used behind the scenes to support recursion by keeping track of previous function calls;
+- Can be used to do a Depth First Search (DFS) on a graph.
+
+## Complexity:
+
+|           |      |
+| --------- | ---- |
+| Pushing   | O(1) |
+| Popping   | O(1) |
+| Peeking   | O(1) |
+| Searching | O(n) |
+| Size      | O(1) |
