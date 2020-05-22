@@ -16,7 +16,7 @@ class DoublyLinkedListNode implements DoublyLinkedListNode {
   }
 }
 
-interface DoublyLinkedList {
+export interface DoublyLinkedList {
   head: DoublyLinkedListNode | null;
   tail: DoublyLinkedListNode | null;
   length: number;
@@ -37,7 +37,7 @@ interface DoublyLinkedList {
   contains<T>(element: T): boolean;
 }
 
-class DoublyLinkedList implements DoublyLinkedList {
+export class DoublyLinkedList implements DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -57,10 +57,10 @@ class DoublyLinkedList implements DoublyLinkedList {
   }
 }
 
-const linkedList = new DoublyLinkedList();
-linkedList.add("something");
-console.log(linkedList);
-linkedList.add("wow");
-linkedList.add("wowII");
-console.log(linkedList);
-console.log(linkedList.tail && linkedList.tail.prev);
+// const linkedList = new DoublyLinkedList();
+// linkedList.add("something");
+// console.log(linkedList);
+// linkedList.add("wow");
+// linkedList.add("wowII");
+// console.log(linkedList);
+// console.log(linkedList.tail && linkedList.tail.prev);
