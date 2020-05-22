@@ -15,3 +15,24 @@ class DoublyLinkedListNode<T> implements DoublyLinkedListNode<T> {
     this.next = next;
   }
 }
+
+interface DoublyLinkedList<T> {
+  head: DoublyLinkedListNode<T>;
+  tail: DoublyLinkedListNode<T>;
+  length: number;
+  clear(): void;
+  size(): number;
+  isEmpty(): boolean;
+  add<T>(element: T): void; // to the tail O(1)
+  addFirst<T>(element: T): void; // to the beginnig O(1)
+  addLast<T>(element: T): void;
+  peekFirst(): T;
+  peekLast(): T;
+  removeFirst(): T;
+  removeLast(): T;
+  remove<T>(node: DoublyLinkedListNode<T>): void;
+  removeAt(index: number): void;
+  removeElement<T>(element: T): boolean;
+  indexOf<T>(element: T): number;
+  contains<T>(element: T): boolean;
+}
