@@ -12,7 +12,7 @@ class LinkedListNode implements LinkedListNode {
   }
 }
 
-interface LinkedList {
+export interface LinkedList {
   head: LinkedListNode | null;
   length: number;
   size(): number;
@@ -25,7 +25,7 @@ interface LinkedList {
   removeAt(index: number): boolean;
 }
 
-class LinkedList implements LinkedList {
+export class LinkedList implements LinkedList {
   constructor(element: any = null) {
     this.head = element && new LinkedListNode(element);
     this.length = 0;
@@ -162,20 +162,20 @@ class LinkedList implements LinkedList {
   }
 }
 
-const LLInstance = new LinkedList();
-console.log(LLInstance.size());
-console.log(LLInstance.head);
-LLInstance.add("new one");
-LLInstance.add("second one");
-LLInstance.add("third one");
-console.log(LLInstance.size());
-console.log(LLInstance);
-console.log(LLInstance.remove("new one"));
-console.log(LLInstance);
-console.log(LLInstance.head);
-console.log(LLInstance.indexOf("second one"));
-console.log(LLInstance.elementAt(1));
-console.log(LLInstance.addAt(0, "WOW"));
-console.log(LLInstance);
-console.log(LLInstance.removeAt(1));
-console.log(LLInstance);
+// const LLInstance = new LinkedList();
+// console.log(LLInstance.size());
+// console.log(LLInstance.head);
+// LLInstance.add("new one");
+// LLInstance.add("second one");
+// LLInstance.add("third one");
+// console.log(LLInstance.size());
+// console.log(LLInstance);
+// console.log(LLInstance.remove("new one"));
+// console.log(LLInstance);
+// console.log(LLInstance.head);
+// console.log(LLInstance.indexOf("second one"));
+// console.log(LLInstance.elementAt(1));
+// console.log(LLInstance.addAt(0, "WOW"));
+// console.log(LLInstance);
+// console.log(LLInstance.removeAt(1));
+// console.log(LLInstance);
