@@ -1,10 +1,10 @@
-interface DoublyLinkedListNode {
+export interface DoublyLinkedListNode {
   element: any;
   next: DoublyLinkedListNode | null;
   prev: DoublyLinkedListNode | null;
 }
 
-class DoublyLinkedListNode implements DoublyLinkedListNode {
+export class DoublyLinkedListNode implements DoublyLinkedListNode {
   constructor(
     element: any,
     prev: DoublyLinkedListNode | null = null,
