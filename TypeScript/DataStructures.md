@@ -103,3 +103,25 @@ Stack is a one-ended linear data structure which models a real world stack by ha
 | Peeking   | O(1) |
 | Searching | O(n) |
 | Size      | O(1) |
+
+# Queues
+
+Queue is a linear data structure which is model real world queues, by having two primary operators, namely enqueue and dequeue.
+
+## Where and when is a Queue used?
+
+- Any waiting line models a queue, for example a lineup at a movie theatre;
+- Can be used to efficiently keep track of the x most recently added elements;
+- Web server request management where you want first come first serve;
+- Breadth First Search (BFS) graph traversal.
+
+## Complexity
+
+|          |      |
+| -------- | ---- |
+| Enqueue  | O(1) |
+| Dequeue  | O(1) |
+| Peeking  | O(1) |
+| Contains | O(n) |
+| Removal  | O(n) |
+| isEmpty  | O(1) |
