@@ -125,3 +125,30 @@ Queue is a linear data structure which is model real world queues, by having two
 | Contains | O(n) |
 | Removal  | O(n) |
 | isEmpty  | O(1) |
+
+# Priority Queue
+
+Priority Queue is an Abstract Data Type (ADT) that operates similar to a normal queue except each element has a certain priority. The priority of the elements determines the order in which elements are removed from PQ.
+
+To determine which element has the highest priority it used Heap data structure.
+
+## What is heap?
+
+A heap is a tree based data structure that satisfies the heap property (heap invariant). There are two types of heaps: min heap and max heap. Min heap is where all child nodes are greater than or equal to they parent. Meanwhile max heap is opposite, means all child nodes are less than or equal to they parrent.
+
+## When and where is Priority Order used?
+
+- Used in certain implementations of Dijkstra's Shortest Path algorithm;
+- Anytime you need the dynamically fetch the `next best` or `next worst` element;
+- Used in Huffman coding (which is often used for lossless data compression);
+- Best First Search algorithms such as A\* use PQs to continuously grab the next most promising node;
+- Used by Minimum Spanning Tree (MST) algorithms.
+
+## Complexity of PQ with binary heap
+
+|                          |           |
+| ------------------------ | --------- |
+| Binary Heap Construction | O(n)      |
+| Polling                  | O(log(n)) |
+| Peeking                  | O(1)      |
+| Adding                   | O(log(n)) |
