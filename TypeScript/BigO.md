@@ -2,6 +2,27 @@
 
 Big O is the notation that describes time and space complexity of the algorigthm and therefore it's ability to scale.
 
+`n` – size of the input
+
+## Big O represents worst case scenario:
+
+`O(n + c) = O(n)`
+
+`O(cn)= O(n)`
+
+## Notations
+
+|                   |               |
+| ----------------- | ------------- |
+| Constant Time     | O(1)          |
+| Logarithmic Time  | O(log (n))    |
+| Linear Time       | O(n)          |
+| Linearithmic Time | O(nlog(n))    |
+| Quadric Time      | O(n^2)        |
+| Cubic Time        | O(n^3)        |
+| Exponential Time  | O(b^n), b > 1 |
+| Factorial Time    | O(n!)         |
+
 ## Some examples
 
 ```js
