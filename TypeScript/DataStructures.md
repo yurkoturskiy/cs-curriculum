@@ -86,6 +86,8 @@ Singly linked list only holds one pointer to the next node, while doubly liked l
 
 Stack is a one-ended linear data structure which models a real world stack by having two primary operations, namely `push` and `pop`.
 
+![Stack visualization](https://drive.google.com/uc?id=1wjqdyJeT8RSwSZzvofITO2dONR0um5JU)
+
 ## When and where is a Stack used?
 
 - Used by undo mechanism in text editor;
