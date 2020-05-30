@@ -108,6 +108,8 @@ Stack is a one-ended linear data structure which models a real world stack by ha
 
 Queue is a linear data structure which is model real world queues, by having two primary operators, namely enqueue and dequeue.
 
+![Queue visualisation](https://drive.google.com/uc?id=1Pak8aXMDkEI9679i7smAcUJz7A3LQlqD)
+
 ## Where and when is a Queue used?
 
 - Any waiting line models a queue, for example a lineup at a movie theatre;
