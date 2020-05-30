@@ -108,7 +108,7 @@ Stack is a one-ended linear data structure which models a real world stack by ha
 
 Queue is a linear data structure which is model real world queues, by having two primary operators, namely enqueue and dequeue.
 
-![Queue visualisation](https://drive.google.com/uc?id=1Pak8aXMDkEI9679i7smAcUJz7A3LQlqD)
+![Queue visualization](https://drive.google.com/uc?id=1Pak8aXMDkEI9679i7smAcUJz7A3LQlqD)
 
 ## Where and when is a Queue used?
 
@@ -154,3 +154,7 @@ A heap is a tree based data structure that satisfies the heap property (heap inv
 | Polling                  | O(log(n)) |
 | Peeking                  | O(1)      |
 | Adding                   | O(log(n)) |
+
+# Trie
+
+![Trie visualization](https://drive.google.com/uc?id=1vV-zfXs_oDIZk5C2srqaRci_v3qNGe5y)
