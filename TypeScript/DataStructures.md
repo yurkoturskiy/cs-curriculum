@@ -43,6 +43,8 @@ Dynamic array can grow and shrink in size. It is usualy created with a static ar
 
 A linked list is a sequential list of nodes that hold data which point to other nodes and containing data.
 
+![Linked Lists visualization](https://drive.google.com/uc?id=1W1N5hByzpW928xBMJ1tIwoZ106bIa9dR)
+
 ### Where are linked lists used?
 
 - Used in many List, Queue & Stack implementations;
