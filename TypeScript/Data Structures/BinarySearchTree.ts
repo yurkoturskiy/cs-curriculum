@@ -143,29 +143,19 @@ class BinarySearchTree implements BinarySearchTree {
   }
 
   findMinHeight(node: BSTNode | null = this.root): number {
-    if (node == null) {
-      return -1;
-    }
+    if (node == null) return -1;
     const left = this.findMinHeight(node.left);
     const right = this.findMinHeight(node.right);
-    if (left < right) {
-      return left + 1;
-    } else {
-      return right + 1;
-    }
+    if (left < right) return left + 1;
+    else return right + 1;
   }
 
   findMaxHeight(node: BSTNode | null = this.root): number {
-    if (node == null) {
-      return -1;
-    }
-    const left = this.findMinHeight(node.left);
-    const right = this.findMinHeight(node.right);
-    if (left > right) {
-      return left + 1;
-    } else {
-      return right + 1;
-    }
+    if (node == null) return -1;
+    const left = this.findMaxHeight(node.left);
+    const right = this.findMaxHeight(node.right);
+    if (left > right) return left + 1;
+    else return right + 1;
   }
 
   inOrder() {
