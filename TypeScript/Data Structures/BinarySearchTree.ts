@@ -158,21 +158,6 @@ class BinarySearchTree implements BinarySearchTree {
     else return right + 1;
   }
 
-  inOrder() {
-    if (this.root === null) {
-      return null;
-    } else {
-      let result = new Array();
-      const traverseInOrder = (node: BSTNode) => {
-        node.left && traverseInOrder(node.left);
-        result.push(node.data);
-        node.right && traverseInOrder(node.right);
-      };
-      traverseInOrder(this.root);
-      return result;
-    }
-  }
-
   preOrder() {
     if (this.root === null) {
       return null;
@@ -184,6 +169,21 @@ class BinarySearchTree implements BinarySearchTree {
         node.right && traversePreOrder(node.right);
       };
       traversePreOrder(this.root);
+      return result;
+    }
+  }
+
+  inOrder() {
+    if (this.root === null) {
+      return null;
+    } else {
+      let result = new Array();
+      const traverseInOrder = (node: BSTNode) => {
+        node.left && traverseInOrder(node.left);
+        result.push(node.data);
+        node.right && traverseInOrder(node.right);
+      };
+      traverseInOrder(this.root);
       return result;
     }
   }
@@ -247,3 +247,10 @@ console.log("traverse inOrder:", tree.inOrder());
 console.log("traverse preOrder:", tree.preOrder());
 console.log("traverse postOrder:", tree.postOrder());
 console.log("traverse levelOrder:", tree.levelOrder());
+
+const tempTree = new BinarySearchTree();
+tempTree.add(6);
+tempTree.add(5);
+tempTree.add(7);
+tempTree.add(4);
+console.log(tempTree);
